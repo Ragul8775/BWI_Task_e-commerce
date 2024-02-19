@@ -24,7 +24,6 @@ const Login = () => {
         { headers: { "Content-Type": "application/json" } }
       )
       .then((response) => {
-        console.log(response.data);
         login(response.data.token);
         setError(null);
         navigate("/");
