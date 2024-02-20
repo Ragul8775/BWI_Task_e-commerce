@@ -14,6 +14,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (data) => {
     localStorage.setItem("token", data.token);
+    setAuthToken(data.token);
     console.log("About to fetch user data with token:", data.token);
     setUserData(data);
     localStorage.setItem("userData", JSON.stringify(data));

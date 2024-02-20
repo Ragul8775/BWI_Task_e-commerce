@@ -25,14 +25,11 @@ const Login = () => {
       )
       .then((response) => {
         login(response.data);
-
-        setError(null);
         navigate("/");
       })
       .catch((error) => {
         console.error("Login Failed", error);
         if (error.response) {
-          // Only capture the relevant error message
           setError(error.response.data.message);
         } else {
           setError("An unexpected error occurred.");
@@ -41,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-stone-200 flex flex-col items-center justify-center min-h-screen md:py-2 bg-gradient-to-r from-primary to-secondary min-h-screen">
+    <div className="bg-stone-200 flex flex-col items-center justify-center  md:py-2 bg-gradient-to-r from-primary to-secondary min-h-screen">
       <main className="flex flex-col items-center w-full px-2 md:px-32 md:flex-row">
         <div className="hidden md:flex flex-col flex-1 space-y-6 w-full md:w-1/2">
           <p className="text-6xl text-red-600 font-bold">CartFusion</p>
@@ -56,7 +53,7 @@ const Login = () => {
               className="w-auto h-20 bg-transparent "
               alt="CartFusion logo"
             />
-            <p className="font-semibold  text-[10px] md:hidden text-black font-semibold">
+            <p className="text-[10px] md:hidden text-black font-semibold">
               Revolutionizing Your Shopping Experience with One Click
             </p>
           </div>
