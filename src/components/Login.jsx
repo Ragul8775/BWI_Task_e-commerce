@@ -21,13 +21,13 @@ const Login = () => {
           username: userName,
           password: password, //"username":"rshawe2","password":"OWsTbMUgFc"
         },
-        { headers: { "Content-Type": "application/json" } }
+        { headers: { "Content-Type": "application/json" } },
       )
       .then((response) => {
         login(response.data.token);
         setError(null);
         navigate("/");
-        
+        window.location.reload();
       })
       .catch((error) => {
         console.error("Login Failed", error);
@@ -41,15 +41,15 @@ const Login = () => {
   };
 
   return (
-    <div className="bg-stone-200 flex flex-col items-center justify-center min-h-screen md:py-2">
+    <div className="bg-stone-200 flex flex-col items-center justify-center min-h-screen md:py-2 bg-gradient-to-r from-primary to-secondary min-h-screen">
       <main className="flex flex-col items-center w-full px-2 md:px-32 md:flex-row">
         <div className="hidden md:flex flex-col flex-1 space-y-6 w-full md:w-1/2">
-          <p className="text-6xl text-red-500 font-bold">CartFusion</p>
-          <p className="font-medium text-lg leading-6 text-blue-600">
+          <p className="text-6xl text-red-600 font-bold">CartFusion</p>
+          <p className="font-medium text-lg leading-6 text-light">
             CartFusion: Revolutionizing Your Shopping Experience with One Click.
           </p>
         </div>
-        <div className="bg-white rounded-2xl py-14  shadow-2xl flex flex-col w-3/4 md:w-1/3 items-center max-w-4xl transition duration-1000 ease-out">
+        <div className="bg-gradient-to-r from-slate-100 to-light rounded-2xl py-14  shadow-2xl flex flex-col w-3/4 md:w-1/3 items-center max-w-4xl transition duration-1000 ease-out">
           <div className="flex flex-col px-6 md:px-10 py-4 items-center">
             <img
               src={Logo}
@@ -63,11 +63,11 @@ const Login = () => {
           <div className="w-2/3">
             <form className="" onSubmit={handleSubmit}>
               <div>
-                <label className="block mb-2 text-blue-500 " htmlFor="username">
+                <label className="block mb-2 text-primary " htmlFor="username">
                   Username
                 </label>
                 <input
-                  className="w-full p-2 mb-6 text-blue-700 border-b-2 border-blue-500 outline-none "
+                  className="w-full p-2 mb-6 text-blue-700 border-b-2 border-primary outline-none "
                   type="text"
                   name="username"
                   id="username"
@@ -76,11 +76,11 @@ const Login = () => {
                 />
               </div>
               <div>
-                <label className="block mb-2 text-blue-500" htmlFor="password">
+                <label className="block mb-2 text-primary" htmlFor="password">
                   Password
                 </label>
                 <input
-                  className="w-full p-2 mb-6 text-blue-700 border-b-2 border-blue-500 outline-none "
+                  className="w-full p-2 mb-6 text-blue-700 border-b-2 border-primary outline-none "
                   type="password"
                   name="password"
                   value={password}
@@ -90,7 +90,7 @@ const Login = () => {
               </div>
               <div>
                 <input
-                  className="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mb-6 rounded"
+                  className="w-full bg-primary hover:bg-secondary text-white font-bold py-2 px-4 mb-6 rounded"
                   type="submit"
                   value="Login"
                 />

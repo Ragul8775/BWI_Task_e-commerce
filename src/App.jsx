@@ -10,23 +10,32 @@ import Login from "./components/Login";
 import HomePage from "./components/HomePage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { CartProvider } from "./context/CartContext";
+import CartPage from "./components/CartPage";
 const App = () => {
   return (
     <Router>
       <AuthProvider>
-          <CartProvider>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/"
-            element={
-              <ProtectedRoute>
-                <HomePage />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
-          </CartProvider>
+        <CartProvider>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route
+              path="/"
+              element={
+                <ProtectedRoute>
+                  <HomePage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <ProtectedRoute>
+                  <CartPage />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </CartProvider>
       </AuthProvider>
     </Router>
   );

@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import RatingStar from "./RatingStar";
-
+import { useCart } from "../context/CartContext";
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch("https://dummyjson.com/products")
@@ -43,7 +44,10 @@ const Products = () => {
                   </div>
                 </div>
 
-                <button className="mt-auto bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700">
+                <button
+                  onClick={() => addToCart(product)}
+                  className="mt-auto bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-700"
+                >
                   Add to Cart
                 </button>
               </div>
