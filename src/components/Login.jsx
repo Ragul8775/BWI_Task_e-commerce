@@ -56,7 +56,7 @@ const Login = () => {
               className="w-auto h-20 bg-transparent "
               alt="CartFusion logo"
             />
-            <p className="font-semibold  text-[10px] md:hidden text-blue-600 dark:text-white">
+            <p className="font-semibold  text-[10px] md:hidden text-black font-semibold">
               Revolutionizing Your Shopping Experience with One Click
             </p>
           </div>
