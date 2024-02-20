@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import ProfileDropdown from "./ProfileDropdown"; // Assuming you've created this component
 import { CiShoppingCart } from "react-icons/ci";
 import Logo from "../assets/icon_logo.png";
+import CartIcon from "./CartIcon";
 const Navbar = () => {
   return (
     <nav className="bg-gradient-to-r from-primary to-secondary shadow-2xl text-light ">
@@ -14,8 +15,7 @@ const Navbar = () => {
         </div>
         <div className="flex justify-between items-center gap-6 mx-6">
           <a href="/cart" className="py-2 px-4 rounded hover:drop-shadow-2xl ">
-            <CiShoppingCart className="text-4xl text-light" />
-          </a>
+            <CartIcon/>          </a>
 
           <div className="flex">
             <ProfileDropdown />

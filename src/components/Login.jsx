@@ -27,6 +27,7 @@ const Login = () => {
         login(response.data.token);
         setError(null);
         navigate("/");
+        
       })
       .catch((error) => {
         console.error("Login Failed", error);
