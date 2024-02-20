@@ -21,13 +21,13 @@ const Login = () => {
           username: userName,
           password: password, //"username":"rshawe2","password":"OWsTbMUgFc"
         },
-        { headers: { "Content-Type": "application/json" } },
+        { headers: { "Content-Type": "application/json" } }
       )
       .then((response) => {
-        login(response.data.token);
+        login(response.data);
+
         setError(null);
         navigate("/");
-        window.location.reload();
       })
       .catch((error) => {
         console.error("Login Failed", error);

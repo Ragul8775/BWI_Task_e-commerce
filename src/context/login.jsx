@@ -12,44 +12,18 @@ export const AuthProvider = ({ children }) => {
     return savedUserData ? JSON.parse(savedUserData) : null;
   });
 
-  useEffect(() => {
-    // Fetch user data if a token is available on component mount
-    const token = localStorage.getItem("token");
-    if (token) {
-      fetchUserData(token);
-    }
-  }, []); // Runs only on component mount
-
-  const fetchUserData = async (token) => {
-    try {
-      console.log("Using token for fetch:", token);
-      const response = await axios.get("https://dummyjson.com/auth/me", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      console.log("Response:", response.data);
-      if (response.data) {
-        setUserData(response.data);
-        localStorage.setItem("userData", JSON.stringify(response.data));
-      } else {
-        throw new Error("Failed to fetch user data.");
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  };
-
-  const login = async (token) => {
-    localStorage.setItem("token", token);
-    console.log("About to fetch user data with token:", token);
-    fetchUserData(token); // Fetch user data with the new token
-    setAuthToken(token); // Update state to reflect login
+  const login = async (data) => {
+    localStorage.setItem("token", data.token);
+    console.log("About to fetch user data with token:", data.token);
+    setUserData(data);
+    localStorage.setItem("userData", JSON.stringify(data));
   };
 
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("userData");
     setAuthToken(null);
-    setUserData(null); // Clear user data on logout
+    setUserData(null);
   };
 
   return (
